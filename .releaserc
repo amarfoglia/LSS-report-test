@@ -2,7 +2,11 @@
   "plugins": [
     "@semantic-release/commit-analyzer",
     "@semantic-release/release-notes-generator",
-    "@semantic-release/github",
+    ["@semantic-release/github", {
+      "assets": [
+        {"path": "reports/LSSReport.pdf", "label": "LSS report"}
+      ]
+    }],
     "semantic-release-license",
     [
       "@semantic-release/changelog",
@@ -13,7 +17,7 @@
     [
       "@semantic-release/git",
       {
-        "assets": ["docs/*", "LICENSE"]
+        "assets": ["docs/CHANGELOG.md", "LICENSE"]
       }
     ]
   ]

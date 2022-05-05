@@ -18,21 +18,22 @@ jobs:
         id: date
         run: echo "::set-output name=date::$(date +'%d-%m-%Y')"
 
-      - name: Prepare environment
-        run: |
-          mkdir docs
+      # - name: Prepare environment
+      #   run: |
+      #     mkdir docs
 
       - name: Generate LSS report PDF
         uses: docker://pandoc/latex:2.18
         with:
-          args: -d ./pandoc/latex.yml -o docs/LSSReport.pdf -M date:${{steps.date.outputs.date}}
+          # args: -d ./pandoc/latex.yml -o docs/LSSReport.pdf -M date:${{steps.date.outputs.date}}
+          args: -d ./pandoc/latex.yml -o reports/LSSReport.pdf -M date:${{steps.date.outputs.date}}
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v3
         with:
           # name: reports-${{ steps.date.outputs.date }}
           name: lss-report
-          path: docs
+          path: reports
   release:
     runs-on: ubuntu-latest
     needs: upload-artifact
@@ -43,14 +44,14 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: lss-report
-          path: docs
+          path: reports
       - name: Setup node
         uses: actions/setup-node@v2
         with:
           node-version: '14'
       - name: Display structure of downloaded files
         run: ls
-        working-directory: docs
+        # working-directory: docs
       - name: Semantic Release
         uses: cycjimmy/semantic-release-action@v3
         id: semantic-release
