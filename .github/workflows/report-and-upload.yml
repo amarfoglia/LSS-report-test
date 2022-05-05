@@ -25,7 +25,7 @@ jobs:
       - name: Generate LSS report PDF
         uses: docker://pandoc/latex:2.18
         with:
-          args: -d ./pandoc/latex.yaml -o docs/LSSReport.pdf -M date:${{steps.date.outputs.date}}
+          args: -d ./pandoc/latex.yml -o docs/LSSReport.pdf -M date:${{steps.date.outputs.date}}
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v2
