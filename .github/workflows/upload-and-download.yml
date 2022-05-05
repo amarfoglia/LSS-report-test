@@ -35,7 +35,7 @@ jobs:
           path: docs
   download-artifact:
       needs: 
-        - pandoc
+        - upload-artifact
       runs-on: ubuntu-18.04
       steps:
         - uses: actions/download-artifact@v3
