@@ -13,7 +13,7 @@
     [
       "@semantic-release/git",
       {
-        "assets": ["docs/CHANGELOG.md", "LICENSE"]
+        "assets": ["docs/CHANGELOG.md", "docs/*.pdf", "LICENSE"]
       }
     ]
   ]
