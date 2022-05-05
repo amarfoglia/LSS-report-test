@@ -1,0 +1,19 @@
+
+name: Download
+
+on:
+  push:
+    branches: [ develop ]
+
+jobs:
+  Build:
+    runs-on: ubuntu-18.04
+    steps: 
+      - uses: actions/download-artifact@v3
+        with:
+          name: lss-report
+          path: docs
+          
+      - name: Display structure of downloaded files
+        run: ls -R
+        working-directory: docs
