@@ -43,13 +43,12 @@ jobs:
         with:
           name: lss-report
           path: docs
-      - name: Setup node
-        uses: actions/setup-node@v2
-        with:
-          node-version: '14'
-
+      # - name: Setup node
+      #   uses: actions/setup-node@v2
+      #   with:
+      #     node-version: '14'
       - name: Display structure of downloaded files
-        run: ls 
+        run: ls /R
       #   working-directory: docs
       # - name: Semantic Release
       #   uses: cycjimmy/semantic-release-action@v3
