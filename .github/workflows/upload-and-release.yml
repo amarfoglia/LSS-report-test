@@ -18,9 +18,9 @@ jobs:
         id: date
         run: echo "::set-output name=date::$(date +'%d-%m-%Y')"
 
-      # - name: Prepare environment
-      #   run: |
-      #     mkdir docs
+      - name: Prepare environment
+        run: |
+          mkdir reports
 
       - name: Generate LSS report PDF
         uses: docker://pandoc/latex:2.18
