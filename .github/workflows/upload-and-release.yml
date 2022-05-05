@@ -49,7 +49,7 @@ jobs:
         with:
           node-version: '14'
       - name: Display structure of downloaded files
-        run: ls /R
+        run: ls
       #   working-directory: docs
       - name: Semantic Release
         uses: cycjimmy/semantic-release-action@v3
